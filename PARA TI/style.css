@@ -1,0 +1,1541 @@
+/* =========================================================
+   CONFIGURACIÓN GENERAL
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    background: #000;
+
+    font-family:
+        "Trebuchet MS",
+        Arial,
+        sans-serif;
+
+    color: white;
+
+}
+
+
+/* =========================================================
+   CANVAS
+========================================================= */
+
+#canvasEspacio {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 0;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(0, 130, 255, .20),
+            transparent 40%
+        ),
+
+        #000;
+
+}
+
+
+/* =========================================================
+   ESTRELLAS
+========================================================= */
+
+.estrellas {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background-image:
+
+        radial-gradient(
+            white 1px,
+            transparent 1px
+        ),
+
+        radial-gradient(
+            #7deaff 1px,
+            transparent 1px
+        ),
+
+        radial-gradient(
+            white 1px,
+            transparent 1px
+        );
+
+    background-size:
+
+        80px 80px,
+        140px 140px,
+        210px 210px;
+
+    animation:
+
+        moverEstrellas
+        30s
+        linear
+        infinite;
+
+}
+
+
+@keyframes moverEstrellas {
+
+    from {
+
+        background-position:
+            0 0,
+            0 0,
+            0 0;
+
+    }
+
+    to {
+
+        background-position:
+            400px 500px,
+            -300px 300px,
+            500px -400px;
+
+    }
+
+}
+
+
+/* =========================================================
+   NEBULOSA
+========================================================= */
+
+.nebulosa {
+
+    position: fixed;
+
+    left: 50%;
+    top: 55%;
+
+    width: 80vw;
+    height: 80vw;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            ellipse,
+            rgba(0, 200, 255, .45),
+            rgba(0, 100, 255, .15),
+            transparent 65%
+        );
+
+    filter: blur(35px);
+
+    z-index: 1;
+
+    animation:
+
+        respirarNebulosa
+        5s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes respirarNebulosa {
+
+    0%,
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(.95);
+
+    }
+
+    50% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.08);
+
+    }
+
+}
+
+
+/* =========================================================
+   PARTICULAS
+========================================================= */
+
+.particulas {
+
+    position: fixed;
+
+    left: 50%;
+    top: 58%;
+
+    width: 70vw;
+    height: 20vw;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-7deg);
+
+    z-index: 3;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(70, 230, 255, .9) 0 1px,
+            transparent 2px
+        );
+
+    background-size: 13px 13px;
+
+    mask-image:
+
+        radial-gradient(
+            ellipse,
+            black 20%,
+            transparent 70%
+        );
+
+    filter:
+
+        drop-shadow(
+            0 0 7px
+            #00d9ff
+        );
+
+    animation:
+
+        moverParticulas
+        4s
+        ease-in-out
+        infinite alternate;
+
+}
+
+
+@keyframes moverParticulas {
+
+    from {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(-7deg)
+            scale(.95);
+
+    }
+
+    to {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(-4deg)
+            scale(1.05);
+
+    }
+
+}
+
+
+/* =========================================================
+   ESCENA
+========================================================= */
+
+#escena {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 5;
+
+    opacity: 0;
+
+    transform: scale(1.1);
+
+    transition:
+
+        opacity 1.5s ease,
+        transform 2s ease;
+
+}
+
+
+body.iniciado #escena {
+
+    opacity: 1;
+
+    transform: scale(1);
+
+}
+
+
+/* =========================================================
+   TITULO
+========================================================= */
+
+.titulo {
+
+    position: absolute;
+
+    top: 5%;
+
+    left: 50%;
+
+    width: 90%;
+
+    transform:
+        translateX(-50%);
+
+    text-align: center;
+
+    z-index: 20;
+
+    text-shadow:
+
+        0 0 7px #00dfff,
+
+        0 0 18px #008cff,
+
+        0 0 40px #0066ff;
+
+    animation:
+
+        flotarTitulo
+        4s
+        ease-in-out
+        infinite;
+
+}
+
+
+.titulo h1 {
+
+    font-family:
+        "Comic Sans MS",
+        "Trebuchet MS",
+        sans-serif;
+
+    font-size:
+        clamp(
+            28px,
+            5vw,
+            70px
+        );
+
+    color: #e9fcff;
+
+    text-shadow:
+
+        0 0 5px white,
+
+        0 0 15px #00eaff,
+
+        0 0 35px #008cff,
+
+        0 0 60px #0055ff;
+
+}
+
+
+.titulo p {
+
+    margin-top: 8px;
+
+    font-size:
+        clamp(
+            10px,
+            1.3vw,
+            18px
+        );
+
+    color: #dcfaff;
+
+}
+
+
+.texto-pequeno {
+
+    font-size:
+        clamp(
+            12px,
+            1.5vw,
+            21px
+        ) !important;
+
+}
+
+
+@keyframes flotarTitulo {
+
+    0%,
+    100% {
+
+        transform:
+            translateX(-50%)
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateX(-50%)
+            translateY(8px);
+
+    }
+
+}
+
+
+/* =========================================================
+   MENSAJES
+========================================================= */
+
+.mensajes {
+
+    position: absolute;
+
+    inset: 20% 2% 5%;
+
+    z-index: 15;
+
+}
+
+
+.mensaje {
+
+    position: absolute;
+
+    color: #d9faff;
+
+    font-size:
+        clamp(
+            9px,
+            1.2vw,
+            18px
+        );
+
+    text-shadow:
+
+        0 0 5px #00dfff,
+
+        0 0 14px #008cff;
+
+    white-space: nowrap;
+
+    animation:
+
+        flotarMensaje
+        var(--tiempo)
+        ease-in-out
+        infinite
+        alternate;
+
+}
+
+
+.m1 {
+    left: 5%;
+    top: 5%;
+    --tiempo: 4s;
+}
+
+
+.m2 {
+    left: 30%;
+    top: 15%;
+    --tiempo: 5s;
+}
+
+
+.m3 {
+    right: 4%;
+    top: 7%;
+    --tiempo: 4.5s;
+}
+
+
+.m4 {
+    left: 7%;
+    top: 48%;
+    --tiempo: 5s;
+
+    font-size:
+        clamp(
+            13px,
+            1.8vw,
+            25px
+        );
+}
+
+
+.m5 {
+    right: 3%;
+    top: 53%;
+    --tiempo: 4s;
+}
+
+
+.m6 {
+    left: 25%;
+    top: 70%;
+    --tiempo: 5.5s;
+}
+
+
+.m7 {
+    right: 8%;
+    top: 72%;
+    --tiempo: 4.8s;
+}
+
+
+.m8 {
+    left: 9%;
+    top: 82%;
+    --tiempo: 4s;
+}
+
+
+.m9 {
+    right: 20%;
+    top: 32%;
+    --tiempo: 5s;
+}
+
+
+.m10 {
+    left: 45%;
+    top: 4%;
+    --tiempo: 5.3s;
+}
+
+
+@keyframes flotarMensaje {
+
+    from {
+
+        transform:
+            translateY(0)
+            translateZ(0)
+            rotate(-1deg);
+
+    }
+
+    to {
+
+        transform:
+            translateY(-15px)
+            translateZ(30px)
+            rotate(1deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   MENSAJE CENTRAL
+========================================================= */
+
+.mensaje-central {
+
+    position: absolute;
+
+    left: 50%;
+    top: 55%;
+
+    width: 85%;
+
+    transform:
+        translate(-50%, -50%);
+
+    text-align: center;
+
+    z-index: 30;
+
+    filter:
+        drop-shadow(
+            0 0 18px
+            #00bfff
+        );
+
+}
+
+
+.mensaje-central h2 {
+
+    display: inline-block;
+
+    font-family:
+        "Comic Sans MS",
+        "Trebuchet MS",
+        sans-serif;
+
+    font-size:
+        clamp(
+            32px,
+            6vw,
+            85px
+        );
+
+    color: white;
+
+    text-shadow:
+
+        0 0 5px white,
+
+        0 0 15px #00eaff,
+
+        0 0 35px #0088ff,
+
+        0 0 60px #0055ff;
+
+    animation:
+
+        pulsoTexto
+        3s
+        ease-in-out
+        infinite;
+
+}
+
+
+.carrito-icono {
+
+    display: inline-block;
+
+    font-size:
+        clamp(
+            25px,
+            4vw,
+            55px
+        );
+
+    animation:
+
+        saltarCarrito
+        1.2s
+        ease-in-out
+        infinite alternate;
+
+}
+
+
+.mensaje-central p {
+
+    margin-top: 10px;
+
+    color: #d0f9ff;
+
+    font-size:
+        clamp(
+            12px,
+            1.5vw,
+            21px
+        );
+
+    text-shadow:
+        0 0 10px #00bfff;
+
+}
+
+
+@keyframes pulsoTexto {
+
+    50% {
+
+        transform:
+            scale(1.03);
+
+    }
+
+}
+
+
+@keyframes saltarCarrito {
+
+    to {
+
+        transform:
+            translateY(-10px)
+            rotate(-5deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   CARRITOS
+========================================================= */
+
+.carritos {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 10;
+
+    pointer-events: none;
+
+}
+
+
+.carro {
+
+    position: absolute;
+
+    width:
+        clamp(
+            100px,
+            15vw,
+            230px
+        );
+
+    height: auto;
+
+    object-fit: contain;
+
+    filter:
+
+        drop-shadow(
+            0 0 10px
+            rgba(0, 200, 255, .6)
+        );
+
+    transform-style: preserve-3d;
+
+    animation:
+
+        moverCarro
+        var(--duracion)
+        ease-in-out
+        infinite
+        alternate;
+
+}
+
+
+/* CARRO 1 */
+
+.carro1 {
+
+    left: 2%;
+
+    top: 32%;
+
+    --duracion: 6s;
+
+    transform:
+        rotateY(-20deg)
+        scale(.9);
+
+}
+
+
+/* CARRO 2 */
+
+.carro2 {
+
+    right: 1%;
+
+    top: 43%;
+
+    --duracion: 7s;
+
+    transform:
+        rotateY(20deg)
+        scale(1.15);
+
+}
+
+
+/* CARRO 3 */
+
+.carro3 {
+
+    left: 4%;
+
+    top: 66%;
+
+    --duracion: 8s;
+
+    transform:
+        rotateY(-20deg)
+        scale(1.1);
+
+}
+
+
+/* CARRO 4 */
+
+.carro4 {
+
+    right: 28%;
+
+    top: 73%;
+
+    --duracion: 6s;
+
+    transform:
+        rotateY(20deg)
+        scale(.65);
+
+}
+
+
+/* CARRO 5 */
+
+.carro5 {
+
+    right: 10%;
+
+    top: 23%;
+
+    --duracion: 9s;
+
+    transform:
+        rotateY(20deg)
+        scale(1.2);
+
+}
+
+
+/* CARRO 6 */
+
+.carro6 {
+
+    left: 18%;
+
+    top: 20%;
+
+    --duracion: 7s;
+
+    transform:
+        rotateY(-20deg)
+        scale(.7);
+
+}
+
+
+/* CARRO 7 */
+
+.carro7 {
+
+    right: 6%;
+
+    top: 85%;
+
+    --duracion: 8s;
+
+    transform:
+        rotateY(20deg)
+        scale(.6);
+
+}
+
+
+/* CARRO 8 */
+
+.carro8 {
+
+    left: 24%;
+
+    top: 78%;
+
+    --duracion: 7s;
+
+    transform:
+        rotateY(-20deg)
+        scale(.6);
+
+}
+
+
+/* CARRO 9 */
+
+.carro9 {
+
+    left: -2%;
+
+    top: 8%;
+
+    --duracion: 8s;
+
+    transform:
+        rotateY(-20deg)
+        scale(.6);
+
+}
+
+
+/* CARRO 10 */
+
+.carro10 {
+
+    right: 22%;
+
+    top: 15%;
+
+    --duracion: 8s;
+
+    transform:
+        rotateY(20deg)
+        scale(.8);
+
+}
+
+
+/* CARRO 11 */
+
+.carro11 {
+
+    left: 30%;
+
+    top: 35%;
+
+    --duracion: 9s;
+
+    transform:
+        rotateY(-15deg)
+        scale(.55);
+
+}
+
+
+/* CARRO 12 */
+
+.carro12 {
+
+    right: 38%;
+
+    top: 28%;
+
+    --duracion: 7s;
+
+    transform:
+        rotateY(15deg)
+        scale(.5);
+
+}
+
+
+/* CARRO 13 */
+
+.carro13 {
+
+    left: 37%;
+
+    top: 84%;
+
+    --duracion: 9s;
+
+    transform:
+        rotateY(-15deg)
+        scale(.5);
+
+}
+
+
+/* CARRO 14 */
+
+.carro14 {
+
+    left: 8%;
+
+    top: 86%;
+
+    --duracion: 7s;
+
+    transform:
+        rotateY(-15deg)
+        scale(.55);
+
+}
+
+
+@keyframes moverCarro {
+
+    0% {
+
+        margin-left: -20px;
+
+        margin-top: 15px;
+
+    }
+
+    50% {
+
+        margin-left: 25px;
+
+        margin-top: -20px;
+
+    }
+
+    100% {
+
+        margin-left: -5px;
+
+        margin-top: 20px;
+
+    }
+
+}
+
+
+/* =========================================================
+   ANILLO
+========================================================= */
+
+.anillo {
+
+    position: absolute;
+
+    left: 50%;
+    top: 58%;
+
+    width: 60vw;
+    height: 18vw;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-7deg);
+
+    border:
+
+        1px solid
+        rgba(80, 230, 255, .25);
+
+    border-radius: 50%;
+
+    box-shadow:
+
+        0 0 30px
+        rgba(0, 200, 255, .35),
+
+        inset 0 0 30px
+        rgba(0, 200, 255, .15);
+
+    animation:
+
+        girarAnillo
+        8s
+        linear
+        infinite;
+
+}
+
+
+@keyframes girarAnillo {
+
+    to {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(353deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   DECORACION
+========================================================= */
+
+.decoracion {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 2%;
+
+    transform:
+        translateX(-50%);
+
+    color: #c8faff;
+
+    font-size:
+        clamp(
+            10px,
+            1.3vw,
+            18px
+        );
+
+    text-shadow:
+        0 0 12px #00cfff;
+
+}
+
+
+/* =========================================================
+   BOTON CARTA
+========================================================= */
+
+.boton-carta {
+
+    position: fixed;
+
+    right: 25px;
+    bottom: 22px;
+
+    width: 65px;
+    height: 65px;
+
+    border-radius: 50%;
+
+    border:
+        2px solid
+        rgba(255,255,255,.3);
+
+    background:
+
+        radial-gradient(
+            circle,
+            #45d4ff,
+            #0072c6
+        );
+
+    color: white;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+    z-index: 50;
+
+    box-shadow:
+
+        0 0 18px #00bfff,
+
+        0 0 35px
+        rgba(0, 136, 255, .7);
+
+    animation:
+
+        pulsarBoton
+        1.8s
+        infinite;
+
+}
+
+
+@keyframes pulsarBoton {
+
+    50% {
+
+        transform: scale(1.08);
+
+        box-shadow:
+
+            0 0 30px #00eaff,
+
+            0 0 50px
+            rgba(0, 136, 255, .8);
+
+    }
+
+}
+
+
+/* =========================================================
+   PANTALLA INICIAL
+========================================================= */
+
+#inicio {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(0, 120, 220, .3),
+            transparent 50%
+        ),
+
+        #000;
+
+    transition:
+
+        opacity 1s ease,
+        visibility 1s ease;
+
+}
+
+
+body.iniciado #inicio {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+}
+
+
+.sobre {
+
+    text-align: center;
+
+    padding: 40px;
+
+}
+
+
+.emoji-sobre {
+
+    font-size: 80px;
+
+    animation:
+
+        flotarSobre
+        1.4s
+        ease-in-out
+        infinite alternate;
+
+    filter:
+
+        drop-shadow(
+            0 0 20px
+            #00cfff
+        );
+
+}
+
+
+.sobre h1 {
+
+    font-size:
+        clamp(
+            25px,
+            5vw,
+            55px
+        );
+
+    color: #e4fbff;
+
+    text-shadow:
+        0 0 18px #00cfff;
+
+}
+
+
+.sobre p {
+
+    margin:
+
+        10px 0
+        25px;
+
+    color: #a9eaff;
+
+}
+
+
+#btnComenzar {
+
+    padding:
+
+        15px
+        30px;
+
+    border:
+
+        1px solid
+        #52eaff;
+
+    border-radius: 50px;
+
+    color: white;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #008dd1,
+            #004caa
+        );
+
+    box-shadow:
+
+        0 0 20px
+        #00bfff;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+
+#btnComenzar:hover {
+
+    transform:
+        scale(1.08);
+
+    box-shadow:
+        0 0 35px
+        #00eaff;
+
+}
+
+
+@keyframes flotarSobre {
+
+    to {
+
+        transform:
+            translateY(-12px)
+            rotate(5deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   MODAL CARTA
+========================================================= */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 90;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(0,0,0,.75);
+
+    backdrop-filter:
+        blur(8px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: .35s;
+
+}
+
+
+.modal.mostrar {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+.carta {
+
+    position: relative;
+
+    width: min(
+        570px,
+        94vw
+    );
+
+    max-height: 85vh;
+
+    overflow: auto;
+
+    padding: 35px;
+
+    border-radius: 25px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(10,33,57,.98),
+            rgba(0,8,20,.98)
+        );
+
+    border:
+
+        1px solid
+        #39dfff;
+
+    box-shadow:
+
+        0 0 40px
+        rgba(0,205,255,.45);
+
+    text-align: center;
+
+}
+
+
+.carta-icono {
+
+    font-size: 55px;
+
+}
+
+
+.carta h2 {
+
+    color: #bff8ff;
+
+    margin:
+        8px 0
+        18px;
+
+    font-size: 32px;
+
+    text-shadow:
+        0 0 15px #00dfff;
+
+}
+
+
+.carta p {
+
+    color: #d7f8ff;
+
+    line-height: 1.7;
+
+    margin:
+        12px 0;
+
+}
+
+
+.firma {
+
+    font-weight: bold;
+
+    color: white !important;
+
+}
+
+
+.cerrar {
+
+    position: absolute;
+
+    top: 10px;
+    right: 15px;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #0a263d;
+
+    color: white;
+
+    font-size: 27px;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media(max-width: 700px) {
+
+    .mensaje:nth-child(n+6) {
+
+        display: none;
+
+    }
+
+
+    .titulo {
+
+        top: 4%;
+
+    }
+
+
+    .mensaje-central {
+
+        top: 55%;
+
+    }
+
+
+    .carro {
+
+        width: 110px;
+
+    }
+
+
+    .boton-carta {
+
+        width: 58px;
+        height: 58px;
+
+        right: 15px;
+        bottom: 15px;
+
+    }
+
+}

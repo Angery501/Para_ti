@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Para ti ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         PANTALLA INICIAL
+    ====================================================== -->
+
+    <div id="inicio">
+
+        <div class="sobre">
+
+            <div class="emoji-sobre">
+                💌
+            </div>
+
+            <h1>
+                Tengo una sorpresa para ti
+            </h1>
+
+            <p>
+                Toca el botón para comenzar ❤️
+            </p>
+
+            <button id="btnComenzar">
+                Abrir sorpresa
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         FONDO CANVAS
+    ====================================================== -->
+
+    <canvas id="canvasEspacio"></canvas>
+
+
+    <!-- =====================================================
+         FONDO
+    ====================================================== -->
+
+    <div class="estrellas"></div>
+
+    <div class="nebulosa"></div>
+
+    <div class="particulas"></div>
+
+
+    <!-- =====================================================
+         ESCENA PRINCIPAL
+    ====================================================== -->
+
+    <main id="escena">
+
+
+        <!-- =================================================
+             TITULO
+        ================================================== -->
+
+        <section class="titulo">
+
+            <p class="texto-pequeno">
+                🚗 Un gracias que no necesita fecha
+            </p>
+
+            <h1>
+                Feliz Día de los Carritos Hot Wheels
+            </h1>
+
+            <p>
+                🚘 Porque contigo las tardes se hacen cortas
+            </p>
+
+            <p>
+                🚗 Un día perfecto para recordarte cuánto importas
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             MENSAJES FLOTANTES
+        ================================================== -->
+
+        <div class="mensajes">
+
+            <span class="mensaje m1">
+                🚗 Contigo las tardes se hacen cortas
+            </span>
+
+            <span class="mensaje m2">
+                ❤️ Me alegra conocerte
+            </span>
+
+            <span class="mensaje m3">
+                🚘 Contigo siempre hay un motivo para quererte
+            </span>
+
+            <span class="mensaje m4">
+                💙 Feliz día para ti
+            </span>
+
+            <span class="mensaje m5">
+                🚗 Que este día te alcance hoy
+            </span>
+
+            <span class="mensaje m6">
+                ✨ Gracias por estar
+            </span>
+
+            <span class="mensaje m7">
+                ❤️ Tu risa me hace bien
+            </span>
+
+            <span class="mensaje m8">
+                🚘 Contigo todo es mejor
+            </span>
+
+            <span class="mensaje m9">
+                💙 Siempre tienes un lugar especial
+            </span>
+
+            <span class="mensaje m10">
+                🚗 Solo para ti
+            </span>
+
+        </div>
+
+
+        <!-- =================================================
+             MENSAJE PRINCIPAL
+        ================================================== -->
+
+        <section class="mensaje-central">
+
+            <div class="carrito-icono">
+                🚗
+            </div>
+
+            <h2>
+                Feliz día para ti
+            </h2>
+
+            <div class="carrito-icono">
+                🏎️
+            </div>
+
+            <p>
+                Contigo siempre, a mi velocidad favorita ❤️
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             CARRITOS
+        ================================================== -->
+
+        <div class="carritos">
+
+
+            <img src="imagenes/carro1.png"
+                 class="carro carro1"
+                 alt="Carrito Hot Wheels">
+
+
+            <img src="imagenes/carro2.png"
+                 class="carro carro2"
+                 alt="Carrito Hot Wheels">
+
+
+            <img src="imagenes/carro3.png"
+                 class="carro carro3"
+                 alt="Carrito Hot Wheels">
+
+
+            <img src="imagenes/carro4.png"
+                 class="carro carro4"
+                 alt="Carrito Hot Wheels">
+
+
+            <img src="imagenes/carro5.png"
+                 class="carro carro5"
+                 alt="Carrito Hot Wheels">
+
+
+            <img src="imagenes/carro1.png"
+                 class="carro carro6"
+                 alt="Carrito Hot Wheels">
+
+
+            <img src="imagenes/carro2.png"
+                 class="carro carro7"
+                 alt="Carrito Hot Wheels">
+
+
+            <img src="imagenes/carro3.png"
+                 class="carro carro8"
+                 alt="Carrito Hot Wheels">
+
+
+            <img src="imagenes/carro4.png"
+                 class="carro carro9"
+                 alt="Carrito Hot Wheels">
+
+
+            <img src="imagenes/carro5.png"
+                 class="carro carro10"
+                 alt="Carrito Hot Wheels">
+
+
+            <img src="imagenes/carro1.png"
+                 class="carro carro11"
+                 alt="Carrito Hot Wheels">
+
+
+            <img src="imagenes/carro3.png"
+                 class="carro carro12"
+                 alt="Carrito Hot Wheels">
+
+
+            <img src="imagenes/carro5.png"
+                 class="carro carro13"
+                 alt="Carrito Hot Wheels">
+
+
+            <img src="imagenes/carro2.png"
+                 class="carro carro14"
+                 alt="Carrito Hot Wheels">
+
+        </div>
+
+
+        <!-- =================================================
+             ANILLO DE PARTICULAS
+        ================================================== -->
+
+        <div class="anillo"></div>
+
+
+        <!-- =================================================
+             PARTICULAS DECORATIVAS
+        ================================================== -->
+
+        <div class="decoracion">
+
+            ✨ 🚗 ✨ 💙 ✨ 🚘 ✨ ❤️ ✨ 🚗 ✨
+
+        </div>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         BOTON CARTA
+    ====================================================== -->
+
+    <button id="btnCarta"
+            class="boton-carta">
+
+        💌
+
+    </button>
+
+
+    <!-- =====================================================
+         CARTA
+    ====================================================== -->
+
+    <div id="modalCarta"
+         class="modal">
+
+        <div class="carta">
+
+            <button id="cerrarCarta"
+                    class="cerrar">
+
+                ×
+
+            </button>
+
+
+            <div class="carta-icono">
+                💌
+            </div>
+
+
+            <h2>
+                Para ti ❤️
+            </h2>
+
+
+            <p>
+
+                No necesito una fecha especial para decirte
+                lo mucho que significas para mí.
+
+            </p>
+
+
+            <p>
+
+                Me encanta compartir momentos contigo,
+                reírnos, hablar de cualquier cosa y simplemente
+                saber que estás ahí.
+
+            </p>
+
+
+            <p>
+
+                Si la vida fuera una carretera,
+                elegiría seguir avanzando contigo,
+                disfrutando cada curva, cada aventura
+                y cada pequeño momento.
+
+            </p>
+
+            <img src="imagenes/nosotros.png"
+                 class="nosotros"
+                 alt="Nosotros">
+
+
+            <p class="firma">
+
+                Atentamente: Wendy 🚗❤️
+
+            </p>
+            
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MUSICA
+    ====================================================== -->
+
+    <audio id="musica"
+           loop>
+
+        <source src="musica/musica.mp3"
+                type="audio/mpeg">
+
+    </audio>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
